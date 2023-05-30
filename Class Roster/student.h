@@ -10,3 +10,63 @@ that is, create stub functions (empty functions) for now.
 */
 
 #include “degree.h”
+
+using std::string;
+using std::cout;
+
+/*
+Req D.
+For the Student class, do the following
+1. In files student.h and student.cpp create the Student class, which includes each of the following variables:
+•  student ID
+•  first name
+•  last name
+•  email address
+•  age
+•  array of number of days to complete each course
+•  degree program
+
+2.  Create each of the following functions in the Student class:
+a.  an accessor (i.e., getter) for each instance variable from part D1
+b.  a mutator (i.e., setter) for each instance variable from part D1
+c.  All external access and changes to any instance variables of the Student class must be done using accessor and mutator functions.
+d.  constructor using all of the input parameters provided in the table
+e.  print() to print specific student data
+*/
+
+
+class Student {
+public:
+	const static int MAX_COURSES = 3;
+private:
+	string firstName;
+	string lastName;
+	string emailAddress;
+	string age;
+	int daysInCourse[MAX_COURSES];
+	DegreeProgram degreeProgram;
+public:
+	Student(); //parameterless constructor
+	Student(string firstName, string lastName, string emailAddress, string age, string daysInCourse[], DegreeProgram degreeProgram); //full constructor
+	~Student(); //destructor
+
+	//getters
+	string getFirstName();
+	string getLastName();
+	string getEmailAddress();
+	string getAge();
+	int* getDaysInCourse();
+	DegreeProgram getDegreeProgram();
+
+	//setters
+	void setFirstName(string firstName);
+	void setLastName(string lastName);
+	void setEmailAddress(string emailAddress);
+	void setAge(string age);
+	void setDaysInCourse(int daysInCourse[]);
+	void setDegreeProgram(DegreeProgram dp);
+
+	static void printHeader(); //displays a header for the data to follow
+
+	void print(); //displays this student data
+};
