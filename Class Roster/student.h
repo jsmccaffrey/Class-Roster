@@ -9,7 +9,7 @@ You may defer the actual definition of the functions in student.cpp until they a
 that is, create stub functions (empty functions) for now.
 */
 
-#include “degree.h”
+#include "degree.h"
 
 using std::string;
 using std::cout;
@@ -39,6 +39,7 @@ class Student {
 public:
 	const static int MAX_COURSES = 3;
 private:
+	string studentID;
 	string firstName;
 	string lastName;
 	string emailAddress;
@@ -46,11 +47,12 @@ private:
 	int daysInCourse[MAX_COURSES];
 	DegreeProgram degreeProgram;
 public:
-	Student(); //parameterless constructor
+	Student(); // parameterless constructor sets to default values
 	Student(string firstName, string lastName, string emailAddress, string age, string daysInCourse[], DegreeProgram degreeProgram); //full constructor
-	~Student(); //destructor
+	~Student(); // destructor
 
-	//getters
+	// getters aka accessors
+	string getStudentID();
 	string getFirstName();
 	string getLastName();
 	string getEmailAddress();
@@ -58,7 +60,8 @@ public:
 	int* getDaysInCourse();
 	DegreeProgram getDegreeProgram();
 
-	//setters
+	// setters aka mutators
+	void setStudentID(string studentID);
 	void setFirstName(string firstName);
 	void setLastName(string lastName);
 	void setEmailAddress(string emailAddress);
@@ -66,7 +69,7 @@ public:
 	void setDaysInCourse(int daysInCourse[]);
 	void setDegreeProgram(DegreeProgram dp);
 
-	static void printHeader(); //displays a header for the data to follow
+	static void printHeader(); // displays a header for the data to follow
 
-	void print(); //displays this student data
+	void print(); // displays this student data
 };
