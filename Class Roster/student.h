@@ -48,7 +48,7 @@ private:
 	DegreeProgram degreeProgram;
 public:
 	Student(); // parameterless constructor sets to default values
-	Student(string firstName, string lastName, string emailAddress, string age, string daysInCourse[], DegreeProgram degreeProgram); //full constructor
+	Student(string studentID, string firstName, string lastName, string emailAddress, string age, string daysInCourse[], DegreeProgram degreeProgram); //full constructor
 	~Student(); // destructor
 
 	// getters aka accessors
