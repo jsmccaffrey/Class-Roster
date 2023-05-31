@@ -28,11 +28,11 @@ int main()
 {
 	// Req A. In file main.cpp add studentData[] from task scenario into the main() function
 	string studentData[] = {
-	"A1, John, Smith, John1989@gm ail.com, 20, 30, 35, 40, SECURITY",
-	"A2, Suzan, Erickson, Erickson_1990@gmailcom, 19, 50, 30, 40, NETWORK",
-	"A3, Jack, Napoli, The_lawyer99yahoo.com, 19, 20, 40, 33, SOFTWARE",
-	"A4, Erin, Black, Erin.black@comcast.net, 22, 50, 58, 40, SECURITY",
-	"A5, Dan L., Maker, dmaker@wgu.edu, 51, 1, 1, 1, SOFTWARE" }; 
+	"A1, John, Smith, John1989@gm ail.com, 20, 30, 35, SECURITY",
+	"A2, Suzan, Erickson, Erickson_1990@gmailcom, 19, 50, 30, NETWORK",
+	"A3, Jack, Napoli, The_lawyer99yahoo.com, 19, 20, 40, SOFTWARE",
+	"A4, Erin, Black, Erin.black@comcast.net, 22, 50, 58, SECURITY",
+	"A5, James, McCaffrey, jmc1180@wgu.edu, 30, 21, 7, SOFTWARE" }; 
 
 	// Req F1. In file main.cpp print out to the screen, via your application, the course title,
 	// the programming language used, your WGU student ID, and your name, in main()
