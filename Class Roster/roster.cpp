@@ -1,4 +1,3 @@
-#include "roster.h"
 /*
 Req B.
 In all.cpp files add:
@@ -81,13 +80,13 @@ void Roster::parse(string studentdata) // parses each row at a time
 
 	lhs = rhs + 1; // keep going
 	rhs = studentdata.find(",", lhs);
-	int d1 = atoi(studentdata.substr(lhs, rhs - lhs)); // first number of days in course - convert to integer
+	int d1 = (studentdata.substr(lhs, rhs - lhs)); // first number of days in course
 	lhs = rhs + 1; 
 	rhs = studentdata.find(",", lhs);
-	int d2 = atoi(studentdata.substr(lhs, rhs - lhs)); // second number of days in course
+	int d2 = (studentdata.substr(lhs, rhs - lhs)); // second number of days in course
 	lhs = rhs + 1; 
 	rhs = studentdata.find(",", lhs);
-	int d3 = atoi(studentdata.substr(lhs, rhs - lhs)); // third number of days in course
+	int d3 = (studentdata.substr(lhs, rhs - lhs)); // third number of days in course
 
 	add(sid, fnm, lnm, ema, ag, d1, d2, d3, dp);
 }

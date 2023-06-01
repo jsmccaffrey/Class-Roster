@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+#include <iomanip>
 
 /*
 In file student.h:
@@ -13,6 +15,9 @@ that is, create stub functions (empty functions) for now.
 
 using std::string;
 using std::cout;
+using std::endl;
+using std::left;
+using std::setw;
 
 /*
 Req D.
@@ -35,7 +40,8 @@ e.  print() to print specific student data
 */
 
 
-class Student {
+class Student 
+{
 public:
 	const static int MAX_COURSES = 3;
 private:
@@ -48,11 +54,11 @@ private:
 	DegreeProgram degreeProgram;
 public:
 	Student(); // parameterless constructor sets to default values
-	Student(string studentID, string firstName, string lastName, string emailAddress, string age, string daysInCourse[], DegreeProgram degreeProgram); //full constructor
+	Student(string studentID, string firstName, string lastName, string emailAddress, string age, int daysInCourse[], DegreeProgram degreeProgram); //full constructor
 	~Student(); // destructor
 
 	// getters aka accessors
-	string getStudentID();
+	string getID();
 	string getFirstName();
 	string getLastName();
 	string getEmailAddress();
@@ -61,7 +67,7 @@ public:
 	DegreeProgram getDegreeProgram();
 
 	// setters aka mutators
-	void setStudentID(string studentID);
+	void setID(string ID);
 	void setFirstName(string firstName);
 	void setLastName(string lastName);
 	void setEmailAddress(string emailAddress);
