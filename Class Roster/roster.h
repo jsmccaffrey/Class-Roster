@@ -32,26 +32,26 @@ e.  public void printInvalidEmails() that verifies student email addresses and d
 
 class Roster
 {
-private:
+public:
 	int lastIndex = -1;
 	const static int numStudents = 5;
-	Student* studentRosterArray[numStudents]; 
+	Student* students[numStudents]; 
 
 public:
 	void parse(string row);
-	void add(string sID,
-		string sFirstName,
-		string sLastName,
-		string sEmailAddress,
-		string sAge,
-		string sDaysInCourse1,
-		string sDaysInCourse2,
-		string sDaysInCourse3,
+	void add(string studentID,
+		string firstName,
+		string lastName,
+		string emailAddress, 
+		string age, 
+		double days1, 
+		double days2, 
+		double days3, 
 		DegreeProgram dp);
-	void remove(string studentID); // find student with supplied ID and remove
 	void printAll(); // calls the print() method in Student class for each student
 	void printByDegreeProgram(DegreeProgram dp); // degree program is passed in
-	void printAverageDaysInCourse(string sID); // prints average number of days in three courses
+	void printAverageDaysInCourse(string studentID); // prints average number of days in three courses
 	void printInvalidEmails(); // valid email should include an at sign ('@') and period ('.') and should not include a space (' ')
+	void removeByStudentID(string studentID); // find student with supplied ID and remove
 	~Roster();
 };

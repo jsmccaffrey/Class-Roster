@@ -1,3 +1,11 @@
+#include <iostream>
+
+#include <string>
+
+#include "student.h"
+
+using namespace std;
+
 /*
 Req B.
 In all.cpp files add:
@@ -13,14 +21,6 @@ In file student.cpp:
 You may defer the actual definition of the functions in student.cpp until they are required,
 that is, create stub functions (empty functions) for now.
 */
-
-#include <iostream>
-
-#include <string>
-
-#include "student.h"
-
-using namespace std;
 
 /*
 Req D. 
@@ -44,23 +44,26 @@ e.  print() to print specific student data
 
 Student::Student() // parameterless constructor sets to default values
 {
-	this->studentID = " ";
-	this->firstName = " ";
-	this->lastName = " ";
-	this->emailAddress = " ";
-	this->age = " ";
-	for (int i= 0; i < MAX_COURSES; i++) this->daysInCourse[i] = " ";
+	this->studentID = "";
+	this->firstName = "";
+	this->lastName = "";
+	this->emailAddress = "";
+	this->age = "";
+	for (int i = 0; i < MAX_COURSES; i++) this->daysInCourse[i] = 0;
 	this->degreeProgram = DegreeProgram::UNDECLARED;
 }
 
-Student::Student(string firstName, string lastName, string emailAddress, string age, int daysInCourse[], DegreeProgram degreeProgram)
+Student::Student(string studentID, string firstName, string lastName, string emailAddress, string age, double daysInCourse[], DegreeProgram degreeProgram)
 {
 	this->studentID = studentID;
 	this->firstName = firstName;
 	this->lastName = lastName;
 	this->emailAddress = emailAddress;
 	this->age = age;
-	for (int i = 0; i < MAX_COURSES; i++) this->daysInCourse[i] = daysInCourse[i];
+	for (int i = 0; i < MAX_COURSES; i++)
+	{
+		this->daysInCourse[i] = daysInCourse[i];
+	}
 	this->degreeProgram = degreeProgram;
 }
 
@@ -71,15 +74,15 @@ string Student::getFirstName() { return this->firstName; }
 string Student::getLastName() { return this->lastName; }
 string Student::getEmailAddress() { return this->emailAddress; }
 string Student::getAge() { return this->age; }
-int* Student::getDaysInCourse() { return this->daysInCourse; }
+double* Student::getDaysInCourse() { return this->daysInCourse; }
 DegreeProgram Student::getDegreeProgram() { return this->degreeProgram; }
 
-void Student::setID(string studentID) { this->studentID = ID; }
+void Student::setID(string studentID) { this->studentID = studentID; }
 void Student::setFirstName(string firstName) { this->firstName = firstName; }
 void Student::setLastName(string lastName) { this->lastName = lastName; }
 void Student::setEmailAddress(string emailAddress) { this->emailAddress = emailAddress; }
 void Student::setAge(string age) { this->age = age; }
-void Student::setDaysInCourse(int daysInCourse[]) 
+void Student::setDaysInCourse(double daysInCourse[]) 
 { 
 	for (int i = 0; i < MAX_COURSES; i++) this->daysInCourse[i] = daysInCourse[i];
 }
@@ -87,29 +90,29 @@ void Student::setDegreeProgram(DegreeProgram dp) { this->degreeProgram = dp; }
 
 void Student::printHeader() // use to print the header
 {
-	cout << left << set(5) << "ID";
-	cout << left << set(10) << "First Name";
-	cout << left << set(10) << "Last Name";
-	cout << left << set(5) << "Email Address";
-	cout << left << set(5) << "Age";
-	cout << left << set(5) << "Days1";
-	cout << left << set(5) << "Days2";
-	cout << left << set(5) << "Days3";
-	cout << left << set(10) << "Degree Program";
+	cout << left << setw(5) << "ID";
+	cout << left << setw(10) << "First Name";
+	cout << left << setw(10) << "Last Name";
+	cout << left << setw(5) << "Email Address";
+	cout << left << setw(5) << "Age";
+	cout << left << setw(5) << "Days1";
+	cout << left << setw(5) << "Days2";
+	cout << left << setw(5) << "Days3";
+	cout << left << setw(10) << "Degree Program";
 	cout << endl;
 }
 
 void Student::print() 
 {
-	cout << left << set(5) << this->studentID;
-	cout << left << set(10) << this->firstName;
-	cout << left << set(10) << this->lastName;
-	cout << left << set(5) << this->emailAddress;
-	cout << left << set(5) << this->age;
-	cout << left << set(5) << this->daysInCourse[0];
-	cout << left << set(5) << this->daysInCourse[1];
-	cout << left << set(10) << this->daysInCourse[2];
-	cout << left << set(10) << degreeProgramStrings[this->degreeProgram];
+	cout << left << setw(5) << this->studentID;
+	cout << left << setw(10) << this->firstName;
+	cout << left << setw(10) << this->lastName;
+	cout << left << setw(5) << this->emailAddress;
+	cout << left << setw(5) << this->age;
+	cout << left << setw(5) << this->daysInCourse[0];
+	cout << left << setw(5) << this->daysInCourse[1];
+	cout << left << setw(10) << this->daysInCourse[2];
+	cout << left << setw(10) << degreeProgramStrings[this->degreeProgram];
 	cout << endl; 
 }
 

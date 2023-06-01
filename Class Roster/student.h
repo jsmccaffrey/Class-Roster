@@ -50,11 +50,11 @@ private:
 	string lastName;
 	string emailAddress;
 	string age;
-	int daysInCourse[MAX_COURSES];
+	double daysInCourse[MAX_COURSES];
 	DegreeProgram degreeProgram;
 public:
 	Student(); // parameterless constructor sets to default values
-	Student(string studentID, string firstName, string lastName, string emailAddress, string age, int daysInCourse[], DegreeProgram degreeProgram); //full constructor
+	Student(string studentID, string firstName, string lastName, string emailAddress, string age, double daysInCourse[], DegreeProgram degreeProgram); //full constructor
 	~Student(); // destructor
 
 	// getters aka accessors
@@ -63,7 +63,7 @@ public:
 	string getLastName();
 	string getEmailAddress();
 	string getAge();
-	int* getDaysInCourse();
+	double* getDaysInCourse();
 	DegreeProgram getDegreeProgram();
 
 	// setters aka mutators
@@ -72,7 +72,7 @@ public:
 	void setLastName(string lastName);
 	void setEmailAddress(string emailAddress);
 	void setAge(string age);
-	void setDaysInCourse(int daysInCourse[]);
+	void setDaysInCourse(double daysInCourse[]);
 	void setDegreeProgram(DegreeProgram dp);
 
 	static void printHeader(); // displays a header for the data to follow
