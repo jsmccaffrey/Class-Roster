@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
+#include "degree.h"
 
 /*
 In file student.h:
@@ -10,8 +11,6 @@ In file student.cpp:
 You may defer the actual definition of the functions in student.cpp until they are required,
 that is, create stub functions (empty functions) for now.
 */
-
-#include "degree.h"
 
 using std::string;
 using std::cout;
@@ -39,7 +38,6 @@ d.  constructor using all of the input parameters provided in the table
 e.  print() to print specific student data
 */
 
-
 class Student 
 {
 public:
@@ -50,11 +48,11 @@ private:
 	string lastName;
 	string emailAddress;
 	string age;
-	double daysInCourse[MAX_COURSES];
+	int daysInCourse[MAX_COURSES];
 	DegreeProgram degreeProgram;
 public:
 	Student(); // parameterless constructor sets to default values
-	Student(string studentID, string firstName, string lastName, string emailAddress, string age, double daysInCourse[], DegreeProgram degreeProgram); //full constructor
+	Student(string studentID, string firstName, string lastName, string emailAddress, string age, int daysInCourse[], DegreeProgram degreeProgram); //full constructor
 	~Student(); // destructor
 
 	// getters aka accessors
@@ -63,7 +61,7 @@ public:
 	string getLastName();
 	string getEmailAddress();
 	string getAge();
-	double* getDaysInCourse();
+	int* getDaysInCourse();
 	DegreeProgram getDegreeProgram();
 
 	// setters aka mutators
@@ -72,7 +70,7 @@ public:
 	void setLastName(string lastName);
 	void setEmailAddress(string emailAddress);
 	void setAge(string age);
-	void setDaysInCourse(double daysInCourse[]);
+	void setDaysInCourse(int daysInCourse[]);
 	void setDegreeProgram(DegreeProgram dp);
 
 	static void printHeader(); // displays a header for the data to follow

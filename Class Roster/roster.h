@@ -44,9 +44,9 @@ public:
 		string lastName,
 		string emailAddress, 
 		string age, 
-		double days1, 
-		double days2, 
-		double days3, 
+		int days1, 
+		int days2, 
+		int days3,
 		DegreeProgram dp);
 	void printAll(); // calls the print() method in Student class for each student
 	void printByDegreeProgram(DegreeProgram dp); // degree program is passed in

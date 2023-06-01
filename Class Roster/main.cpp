@@ -62,9 +62,9 @@ int main()
 
 	cout << "Displaying all students: " << endl;
 	roster.printAll();
-	cout << "Displaying invalid emails: " << endl;
+	cout << endl << "Displaying invalid emails: " << endl;
 	roster.printInvalidEmails(); 
-	cout << endl;
+	cout << endl << endl;
 
 	/*
 	Req 4 cont.
@@ -84,6 +84,7 @@ int main()
 		cout << "Showing students in degree program: " << degreeProgramStrings[i] << endl;
 		roster.printByDegreeProgram((DegreeProgram)i); 
 	}
+	cout << endl << endl;  
 
 	cout << "Displaying average days in three courses of each student : " << endl;
 	for (int i = 0; i < numStudents; i++)
@@ -93,14 +94,16 @@ int main()
 
 	cout << "Removing A3: " << endl;
 	roster.removeByStudentID("A3");
-	cout << endl;
+	cout << endl << endl; 
 
-	roster.printAll();
-	cout << endl; 
+	roster.printAll(); 
+	cout << endl << endl; 
 
 	cout << "Removing A3: " << endl; 
 	roster.removeByStudentID("A3");  
-	cout << endl; 
+	cout << endl << endl; 
+
+	cout << "DONE." << endl;
 
 	system("pause");
 

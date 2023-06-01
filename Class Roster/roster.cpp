@@ -69,19 +69,19 @@ void Roster::parse(string studentdata) // parses each row at a time
 	rhs = studentdata.find(",", lhs); 
 	string ag = studentdata.substr(lhs, rhs - lhs); // age
 
-	double d[3];
+	int d[3];
 	for (int i = 0; i < 3; i++)
 	{
 		lhs = rhs + 1;
 		rhs = studentdata.find(",", lhs);
-		d[i] = stod(studentdata.substr(lhs, rhs - lhs));
+		d[i] = stoi(studentdata.substr(lhs, rhs - lhs));
 	}
 
-	add(sID, fnm, lnm, ema, ag, d[1], d[2], d[3], dp);
+	add(sID, fnm, lnm, ema, ag, d[0], d[1], d[2], dp);
 }
 
 // add method
-void Roster::add(string studentID, string firstName, string lastName, string emailAddress, string age, double days1, double days2, double days3, DegreeProgram dp)
+void Roster::add(string studentID, string firstName, string lastName, string emailAddress, string age, int days1, int days2, int days3, DegreeProgram dp)
 {
 	int darr[] = { days1, days2, days3 }; // puts number of days into array for constructor
 	students[++lastIndex] = new Student(studentID, firstName, lastName, emailAddress, age, darr, dp); // full constructor
@@ -102,10 +102,6 @@ void Roster::printByDegreeProgram(DegreeProgram dp)
 	{
 		if (Roster::students[i]->getDegreeProgram() == dp) students[i]->print();
 	}
-}
-
-void Roster::printAverageDaysInCourse(string sID)
-{
 }
 
 //valid email should include an at sign ('@') and period ('.') and should not include a space (' ')
@@ -163,7 +159,7 @@ void Roster::removeByStudentID(string studentID) //student to be removed comes i
 		cout << studentID << " removed from roster." << endl << endl;
 		this->printAll(); // displays all students after removal
 	}
-	else cout << "The student with the ID " << studentID << " was not found." << endl << endl;
+	else { cout << "The student with the ID " << studentID << " was not found." << endl << endl; }
 }
 
 Roster::~Roster()
