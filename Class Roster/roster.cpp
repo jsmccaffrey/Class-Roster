@@ -156,7 +156,7 @@ void Roster::removeByStudentID(string studentID) //student to be removed comes i
 	{
 		cout << studentID << " removed from roster." << endl;
 	}
-	else { cout << "The student with the ID " << studentID << " was not found." << endl << endl; }
+	else { cout << "The student with the ID: " << studentID << " was not found." << endl << endl; }
 }
 
 // Req F5. Release allocated memory
