@@ -44,16 +44,16 @@ e.  print() to print specific student data
 
 Student::Student() // parameterless constructor sets to default values
 {
-	this->studentID = "";
-	this->firstName = "";
-	this->lastName = "";
-	this->emailAddress = "";
-	this->age = "";
-	for (int i= 0; i < MAX_COURSES; i++) this->daysInCourse[i] = "";
+	this->studentID = " ";
+	this->firstName = " ";
+	this->lastName = " ";
+	this->emailAddress = " ";
+	this->age = " ";
+	for (int i= 0; i < MAX_COURSES; i++) this->daysInCourse[i] = " ";
 	this->degreeProgram = DegreeProgram::UNDECLARED;
 }
 
-Student::Student(string firstName, string lastName, string emailAddress, string age, string daysInCourse[], DegreeProgram degreeProgram)
+Student::Student(string firstName, string lastName, string emailAddress, string age, int daysInCourse[], DegreeProgram degreeProgram)
 {
 	this->studentID = studentID;
 	this->firstName = firstName;
@@ -64,9 +64,9 @@ Student::Student(string firstName, string lastName, string emailAddress, string 
 	this->degreeProgram = degreeProgram;
 }
 
-Student::Student() {} // destructor, Student class creates nothing dynamically
+Student::~Student() {} // destructor, Student class creates nothing dynamically
 
-string Student::getStudentID() { return this->studentID; }
+string Student::getID() { return this->studentID; }
 string Student::getFirstName() { return this->firstName; }
 string Student::getLastName() { return this->lastName; }
 string Student::getEmailAddress() { return this->emailAddress; }
@@ -74,7 +74,7 @@ string Student::getAge() { return this->age; }
 int* Student::getDaysInCourse() { return this->daysInCourse; }
 DegreeProgram Student::getDegreeProgram() { return this->degreeProgram; }
 
-void Student::setStudentID(string studentID) { this->studentID = ID; }
+void Student::setID(string studentID) { this->studentID = ID; }
 void Student::setFirstName(string firstName) { this->firstName = firstName; }
 void Student::setLastName(string lastName) { this->lastName = lastName; }
 void Student::setEmailAddress(string emailAddress) { this->emailAddress = emailAddress; }
@@ -87,9 +87,33 @@ void Student::setDegreeProgram(DegreeProgram dp) { this->degreeProgram = dp; }
 
 void Student::printHeader() // use to print the header
 {
-	cout << "Output format : ID | First Name | Last Name | Email Address | Age | Days in Course | Degree Program" << endl;
+	cout << left << set(5) << "ID";
+	cout << left << set(10) << "First Name";
+	cout << left << set(10) << "Last Name";
+	cout << left << set(5) << "Email Address";
+	cout << left << set(5) << "Age";
+	cout << left << set(5) << "Days1";
+	cout << left << set(5) << "Days2";
+	cout << left << set(5) << "Days3";
+	cout << left << set(10) << "Degree Program";
+	cout << endl;
 }
 
+void Student::print() 
+{
+	cout << left << set(5) << this->studentID;
+	cout << left << set(10) << this->firstName;
+	cout << left << set(10) << this->lastName;
+	cout << left << set(5) << this->emailAddress;
+	cout << left << set(5) << this->age;
+	cout << left << set(5) << this->daysInCourse[0];
+	cout << left << set(5) << this->daysInCourse[1];
+	cout << left << set(10) << this->daysInCourse[2];
+	cout << left << set(10) << degreeProgramStrings[this->degreeProgram];
+	cout << endl; 
+}
+
+/*
 void Student::print()
 {
 	cout << this->getStudentID() << '\t'; // using tab separated output and getters
@@ -102,6 +126,6 @@ void Student::print()
 	cout << this->getDaysInCourse()[2] << '\t';
 	cout << degreeProgramStrings[this->getDegreeProgram()] << '\n'; // degree program to string
 }
-
+*/
 
 
