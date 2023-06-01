@@ -1,3 +1,4 @@
+#include "roster.h"
 /*
 Req B.
 In all.cpp files add:
@@ -127,6 +128,10 @@ void Roster::printByDegreeProgram(DegreeProgram dp)
 	cout << endl;
 }
 
+void Roster::printAverageDaysInCourse(string sID)
+{
+}
+
 //valid email should include an at sign ('@') and period ('.') and should not include a space (' ')
 void Roster::printInvalidEmails()
 {
@@ -144,7 +149,7 @@ void Roster::printInvalidEmails()
 }
 
 // prints average number of days in three courses
-void Roster::printAverageDaysinCourse()
+void Roster::printAverageDaysInCourse(sID)
 {
 	for (int i = 0; i <= Roster::lastIndex; i++)
 	{

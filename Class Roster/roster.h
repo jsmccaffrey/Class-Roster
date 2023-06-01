@@ -51,7 +51,7 @@ public:
 	void remove(string studentID); // find student with supplied ID and remove
 	void printAll(); // calls the print() method in Student class for each student
 	void printByDegreeProgram(DegreeProgram dp); // degree program is passed in
-	void printAverageDaysInCourse(string studentID); // prints average number of days in three courses
+	void printAverageDaysInCourse(string sID); // prints average number of days in three courses
 	void printInvalidEmails(); // valid email should include an at sign ('@') and period ('.') and should not include a space (' ')
 	~Roster();
 };
