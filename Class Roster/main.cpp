@@ -33,17 +33,17 @@ int main()
 	// Req A. In file main.cpp add studentData[] from task scenario into the main() function
 	const string studentData[] = 
 	{
-		"A1, John, Smith, John1989@gm ail.com, 20, 30, 35, 40, SECURITY",
-		"A2, Suzan, Erickson, Erickson_1990@gmailcom, 19, 50, 30, 40, NETWORK",
-		"A3, Jack, Napoli, The_lawyer99yahoo.com, 19, 20, 40, 33, SOFTWARE",
-		"A4, Erin, Black, Erin.black@comcast.net, 22, 50, 58, 40, SECURITY",
-		"A5, James, McCaffrey, jmc1180@wgu.edu, 23, 35, 21, 7, SOFTWARE" 
+		"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
+		"A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
+		"A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
+		"A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
+		"A5,James,McCaffrey,jmc1180@wgu.edu,23,35,21,7,SOFTWARE" 
 	}; 
 
 	const int numStudents = 5;
 
 	// Req F2. In file main.cpp create an instance of the Roster class called classRoster in the main() function.
-	Roster roster;
+	Roster classRoster;
 
 	/*
 	Req F3. In file main.cpp, in the main() function call:
@@ -58,13 +58,13 @@ int main()
 	classRoster.printInvalidEmails();
 	*/
 
-	for (int i = 0; i < numStudents; i++) roster.parse(studentData[i]);
+	for (int i = 0; i < numStudents; i++) classRoster.parse(studentData[i]);
 
-	cout << "Displaying all students: " << endl;
-	roster.printAll();
-	cout << endl << "Displaying invalid emails: " << endl;
-	roster.printInvalidEmails(); 
-	cout << endl << endl;
+	cout << "Displaying all students: " << endl; // Displaying all students
+	classRoster.printAll();
+	cout << endl << "Displaying invalid emails: " << endl; // Displaying all invalid emails
+	classRoster.printInvalidEmails();
+	cout << endl;
 
 	/*
 	Req 4 cont.
@@ -79,35 +79,35 @@ int main()
 	expected: the above line should print a message saying such a student with this ID was not found.
 	*/
 
-	for (int i = 0; i < 3; i++)
-	{
-		cout << "Showing students in degree program: " << degreeProgramStrings[i] << endl;
-		roster.printByDegreeProgram((DegreeProgram)i); 
-	}
-	cout << endl << endl;  
-
-	cout << "Displaying average days in three courses of each student : " << endl;
+	// Displaying average days in three courses of each student
+	cout << "Displaying average days in three courses of each student: " << endl;
 	for (int i = 0; i < numStudents; i++)
 	{
-		roster.printAverageDaysInCourse(roster.students[i]->getID());
+		classRoster.printAverageDaysInCourse(classRoster.students[i]->getID());
 	}
-
-	cout << "Removing A3: " << endl;
-	roster.removeByStudentID("A3");
 	cout << endl << endl; 
 
-	roster.printAll(); 
-	cout << endl << endl; 
+	// Showing students in degree program
+	cout << "Showing students in degree program SOFTWARE: " << endl;
+	classRoster.printByDegreeProgram(SOFTWARE);
+	cout << endl;  
 
-	cout << "Removing A3: " << endl; 
-	roster.removeByStudentID("A3");  
-	cout << endl << endl; 
+	// Removing student
+	cout << "Removing Student A3: " << endl;
+	classRoster.removeByStudentID("A3");
+	cout << endl; 
 
-	cout << "DONE." << endl;
+	classRoster.printAll();
+	cout << endl;
+
+	// Removing student again
+	cout << "Removing Student A3 again: " << endl; 
+	classRoster.removeByStudentID("A3");
+	cout << endl; 
+
+	cout << "DONE." << endl << endl; 
 
 	system("pause");
-
-	// Req F5. Release allocated memory
 	
     return 0;
 }

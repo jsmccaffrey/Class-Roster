@@ -47,13 +47,9 @@ void Roster::parse(string studentdata) // parses each row at a time
 	else dp = UNDECLARED;
 	
 	int rhs = studentdata.find(","); // finds the comma
-	string sID = studentdata.substr(0, rhs); // extracts substring in front of comma
+	string sID = studentdata.substr(0, rhs); // student ID
 
-	int lhs = rhs + 1; // move past previous comma
-	rhs = studentdata.find(",", lhs);
-	string sid = studentdata.substr(lhs, rhs - lhs); // student ID
-
-	lhs = rhs + 1; // keep going
+	int lhs = rhs + 1; // keep going
 	rhs = studentdata.find(",", lhs);
 	string fnm = studentdata.substr(lhs, rhs - lhs); // first name
 
@@ -92,6 +88,7 @@ void Roster::printAll()
 {
 	Student::printHeader();
 	for (int i = 0; i <= Roster::lastIndex; i++) Roster::students[i]->print();
+	cout << endl;
 }
 
 // displays only students with given degree program
@@ -102,6 +99,7 @@ void Roster::printByDegreeProgram(DegreeProgram dp)
 	{
 		if (Roster::students[i]->getDegreeProgram() == dp) students[i]->print();
 	}
+	cout << endl;
 }
 
 //valid email should include an at sign ('@') and period ('.') and should not include a space (' ')
@@ -110,14 +108,15 @@ void Roster::printInvalidEmails()
 	bool any = false;
 	for (int i = 0; i <= Roster::lastIndex; i++)
 	{
-		string sID = (students[i]->getID());
-		if (sID.find('@') == string::npos || sID.find('.') == string::npos || sID.find(' ') == string::npos)
+		string ema = (students[i]->getEmailAddress());
+		if (ema.find('@') == string::npos || ema.find('.') == string::npos || ema.find(" ") != string::npos)
 		{
 			any = true;
-			cout << sID << ": " << students[i]->getEmailAddress() << endl;
+			cout << students[i]->getEmailAddress() << " - email is invalid. " << endl;
 		}
 	}
 	if (!any) cout << "NONE" << endl;
+	cout << endl; 
 }
 
 // prints average number of days in three courses
@@ -127,13 +126,12 @@ void Roster::printAverageDaysInCourse(string studentID)
 	{
 		if (students[i]->getID()==studentID)
 		{ 
-			cout << studentID << ": ";
-			cout << (students[i]->getDaysInCourse()[0]
+			cout << "Student ID: " << studentID << ", average days in course is: " << (students[i]->getDaysInCourse()[0]
 				+ students[i]->getDaysInCourse()[1]
-				+ students[i]->getDaysInCourse()[2]) / 3.0 << endl;
+				+ students[i]->getDaysInCourse()[2]) / 3;
 		}
 	}
-	cout << endl;
+	cout << endl; 
 }
 
 // remove student by ID
@@ -156,12 +154,12 @@ void Roster::removeByStudentID(string studentID) //student to be removed comes i
 	}
 	if (success)
 	{
-		cout << studentID << " removed from roster." << endl << endl;
-		this->printAll(); // displays all students after removal
+		cout << studentID << " removed from roster." << endl;
 	}
 	else { cout << "The student with the ID " << studentID << " was not found." << endl << endl; }
 }
 
+// Req F5. Release allocated memory
 Roster::~Roster()
 {
 	cout << "DESTRUCTOR CALLED" << endl << endl;

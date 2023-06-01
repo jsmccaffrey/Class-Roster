@@ -93,9 +93,9 @@ void Student::printHeader() // use to print the header
 	cout << left << setw(15) << "Last Name";
 	cout << left << setw(30) << "Email Address";
 	cout << left << setw(10) << "Age";
-	cout << left << setw(10) << "Days1";
-	cout << left << setw(10) << "Days2";
-	cout << left << setw(10) << "Days3";
+	cout << left << setw(10) << "Days 1";
+	cout << left << setw(10) << "Days 2";
+	cout << left << setw(10) << "Days 3";
 	cout << left << setw(15) << "Degree Program";
 	cout << endl;
 }
